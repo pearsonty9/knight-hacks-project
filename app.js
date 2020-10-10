@@ -25,12 +25,9 @@ function initMap() {
         center: { lat: 37.6872, lng: -97.3301 },
         zoom: 5,
     });
-    
-    
-    var origin2 = myLatlng;
     let address;
     var outputDiv = document.getElementById("output");
-
+    service2 = new google.maps.places.PlacesService(map);
     // Configure the click listener.
     google.maps.event.addListener(map, 'click', function (mapsMouseEvent) {
         var lng = mapsMouseEvent.latLng.lng();
@@ -39,6 +36,14 @@ function initMap() {
         console.log(mapsMouseEvent.latLng.lng());
 
         origin2 = { lat: lat, lng: lng };
+        var origin2 = myLatlng;
+        var request = {
+            location: origin2,
+            radius: '200',
+            type: ['park']
+        };
+
+        service2.nearbySearch(request, callback);
         //geocoder.geocode({address: origin2},  showGeocodedAddressOnMap(false));
         geocoder.geocode({ location: origin2 }, (results, status) => {
             if (status === "OK") {
@@ -67,4 +72,11 @@ function deleteMarkers(markersArray) {
         markersArray[i].setMap(null);
     }
     markersArray = [];
+}
+function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            console.log(i);
+        }
+    }
 }
