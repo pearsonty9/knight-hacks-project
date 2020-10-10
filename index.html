@@ -14,15 +14,13 @@
 
 <body>
     <div id="right-panel">
-        <h1> Destination Matrix </h1>
-        <div id="inputs">
-            Origin 1: Gainesville, FL <br />
-            Origin 2: Albuquerque, NM <br />
-            Destination 1: Raleigh, NC <br />
-            Destination 2: Phoenix, AZ <br />
-        </div>
         <div>
-            <strong>Results</strong>
+            <h1>Results</h1>
+            <h3>Rating: </h3>
+            <h3>Name: </h3>
+            <h3>Address: </h3>
+            <p>Search Radius: <span id="radiusValue"></span>km</p>
+            <input type="range" min="1" max="100" value="50" class="slider" id="radiusSlider">
         </div>
         <div id="output"></div>
     </div>
