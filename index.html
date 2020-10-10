@@ -1,10 +1,10 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html lang="en">
 <head>
   <meta charset="utf-8">
 
-  <title>Wepage title</title>
+  <title>Webpage title</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
@@ -13,8 +13,23 @@
 </head>
 
 <body>
-    <h1>Title</h1>
-
-  <script src="app.js"></script>
+    <div id="right-panel">
+        <h1> Destination Matrix </h1>
+        <div id="inputs">
+            Origin 1: Gainesville, FL <br />
+            Origin 2: Albuquerque, NM <br />
+            Destination 1: Raleigh, NC <br />
+            Destination 2: Phoenix, AZ <br />
+        </div>
+        <div>
+            <strong>Results</strong>
+        </div>
+        <div id="output"></div>
+    </div>
+    <div id="map"></div>
+    <script src="app.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj7xxZkXQUQ3j3Ha8EfQKqsKuXJgA21g4&callback=initMap&libraries=&v=weekly"
+            defer></script>
 </body>
 </html>
