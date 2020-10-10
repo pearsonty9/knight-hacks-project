@@ -93,3 +93,9 @@ function deleteMarkers(markersArray) {
     }
     markersArray = [];
 }
+
+function submitFunction(){
+    let loc = document.getElementById("loc").value;
+    document.getElementById("rating").innerHTML = loc;
+    console.log(loc);
+}
