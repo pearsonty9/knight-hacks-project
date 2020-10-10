@@ -1,6 +1,7 @@
 //AIzaSyCj7xxZkXQUQ3j3Ha8EfQKqsKuXJgA21g4
 
 let map;
+let inputLoc;
 
 function initMap() {
     const bounds = new google.maps.LatLngBounds();
@@ -95,7 +96,7 @@ function deleteMarkers(markersArray) {
 }
 
 function submitFunction(){
-    let loc = document.getElementById("loc").value;
+    inputLoc = document.getElementById("loc").value;
     document.getElementById("rating").innerHTML = loc;
     console.log(loc);
 }
