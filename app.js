@@ -3,10 +3,12 @@
 let map;
 
 function initMap() {
+    // Configure the click listener.
+
     const bounds = new google.maps.LatLngBounds();
     const markersArray = [];
     const origin1 = { lat: 29.6516, lng: -82.3248 };
-    const origin2 = { lat: 35.0844, lng: -106.6504 };
+    
     const destinationA = { lat: 35.7796, lng: -78.6382 };
     const destinationB = { lat: 33.4484, lng: -112.0740 };
     const destinationIcon =
@@ -15,10 +17,23 @@ function initMap() {
     const originIcon =
         "https://chart.googleapis.com/chart?" +
         "chst=d_map_pin_letter&chld=O|FFFF00|000000";
-    const map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 55.53, lng: 9.4 },
-        zoom: 10,
+    var myLatlng = { lat: 37.6872, lng: -97.3301 };
+    var map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 37.6872, lng: -97.3301 },
+        zoom: 5,
     });
+    var origin2 = myLatlng ;
+
+
+    // Configure the click listener.
+    map.addListener('click', function (mapsMouseEvent) {
+        // Close the current InfoWindow.
+
+        // Create a new InfoWindow.
+        origin2 = mapsMouseEvent.latLng;
+        console.log(origin2.lat);
+    });
+    
     const geocoder = new google.maps.Geocoder();
     const service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
