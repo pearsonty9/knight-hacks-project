@@ -37,8 +37,6 @@ function initMap() {
 
     placesService.nearbySearch(request, (results, status) =>{
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        //const locationAddresses = results.destinationAddresses;
-        //const locationNames = results.name;
         let outputDiv = document.getElementById("output");
         outputDiv.innerHTML = "";
         /*let name = "";
@@ -70,9 +68,13 @@ function initMap() {
               "Name: " + 
               results[i].name + "<br>" +
               "Address: " + 
-              results[i].formatted_address + "<br>" + 
-              "Rating: " + "<br>"
-        }
+              results[i].vicinity + "<br>" + 
+                "Rating: " +
+              results[i].rating + "<br>"
+          }
+          let finalRating = algorithm(results, radius);
+          console.log("final rating: " + finalRating);
+
 
       }
     });
@@ -119,3 +121,28 @@ slider.oninput = () => {
   radiusOutput.innerHTML = radius;
 }
 console.log(radius);
+
+function algorithm(resultsArray, radius) {
+    var qualityParks = 0;
+    //console.log("nums: " + resultsArray.length);
+    var rating = (resultsArray.length/(Math.pow((radius), 2) * 3.14)) * 5;
+    console.log("num :" + rating);
+    for (let i = 0; i < resultsArray.length; ++i) {
+        if (resultsArray[i].rating >= 4.5 && resultsArray[i].rating != null) {
+            qualityParks = qualityParks + 1;
+            //console.log(qualityParks);
+        }
+        if (resultsArray[i].rating < 3.0 && resultsArray[i].rating != null) {
+            qualityParks = qualityParks + 1;
+        }
+    }
+    rating = rating + (3 * qualityParks / resultsArray.length);
+    if (rating < 0) {
+        rating = 0;
+    }
+    if (rating > 10) {
+        rating = 10;
+    }
+    //console.log(qualityParks / resultsArray.length);
+    return rating;
+}
