@@ -22,6 +22,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: rgb(12, 15, 15)
 }
 
 #map {
@@ -73,6 +74,16 @@ h1 {
 #output{
     font-size: 16pt;
     padding: 1% 0;
+}
+#scrollBox{
+    max-height: 1800px;
+    height:725px;
+    width:98%;
+    overflow: auto;
+    background-color:rgb(16, 29, 47);
+    color:white;
+    scrollbar-base-color:black;
+    font-family:sans-serif;
 }
 
 .radio{
