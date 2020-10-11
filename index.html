@@ -16,35 +16,37 @@
     <div id="header">Livability</div>
     <div id="right-panel">
         <div>
-            <div class="radiusHeader">Search Radius: <span id="radiusValue"></span>km</div>
-            <input type="range" min="0" max="10" value="50" class="slider" id="radiusSlider" value="1" step="0.5">
-            <br>
-            <div class="radio">
-                <input type="radio" onchange="radioChange()" id="parks" name="searchType" vale="park">
-                <label for="parks">Parks</label>
+            <div id="toolbar">
+                <div class="radiusHeader">Search Radius: <span id="radiusValue"></span>km</div>
+                <input type="range" min="0" max="10" value="50" class="slider" id="radiusSlider" value="1" step="0.5">
+                <br>
+                <div class="radio">
+                    <input type="radio" onchange="radioChange()" id="parks" name="searchType" vale="park">
+                    <label for="parks">Parks</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" onchange="radioChange()" id="entertainment" name="searchType" vale="entertainment">
+                    <label for="entertainment">Entertainment</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" onchange="radioChange()" id="public-services" name="searchType" vale="services">
+                    <label for="public-services">Public-Services</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" onchange="radioChange()" id="transportation" name="searchType" vale="transport">
+                    <label for="transportation">Transportation</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" onchange="radioChange()" id="attractions" name="searchType" vale="other">
+                    <label for="attractions">Attractions</label>
+                </div>
+                <br><br>
+                <ul>
+                    <li style="font-size: 24pt;">Results: </li>
+                    <li style="font-size: 24pt;margin-left: 10%" id="rating-output"></li>
+                    <li>rating</li>   
+                </ul>
             </div>
-            <div class="radio">
-                <input type="radio" onchange="radioChange()" id="entertainment" name="searchType" vale="entertainment">
-                <label for="entertainment">Entertainment</label>
-            </div>
-            <div class="radio">
-                <input type="radio" onchange="radioChange()" id="public-services" name="searchType" vale="services">
-                <label for="public-services">Public-Services</label>
-            </div>
-            <div class="radio">
-                <input type="radio" onchange="radioChange()" id="transportation" name="searchType" vale="transport">
-                <label for="transportation">Transportation</label>
-            </div>
-            <div class="radio">
-                <input type="radio" onchange="radioChange()" id="attractions" name="searchType" vale="other">
-                <label for="attractions">Attractions</label>
-            </div>
-            <br><br>
-            <ul>
-                <li style="font-size: 20pt;">Results: </li>
-                <li style="font-size: 20pt;margin-left: 20%" id="rating-output"></li>
-            </ul>
-
             <div id = "scrollBox">
                 <div id="output"></div>
             </div>
