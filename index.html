@@ -15,12 +15,9 @@
 <body>
     <div id="right-panel">
         <div>
-            <h1>Results</h1>
-            <h3>Rating: </h3>
-            <h3>Name: </h3>
-            <h3>Address: </h3>
             <p>Search Radius: <span id="radiusValue"></span>km</p>
-            <input type="range" min="1" max="100" value="50" class="slider" id="radiusSlider">
+            <input type="range" min="0" max="10" value="50" class="slider" id="radiusSlider" value="1" step="0.5">
+            <div id="output"></div>
         </div>
         <div id="output"></div>
     </div>

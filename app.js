@@ -3,9 +3,6 @@
 let map;
 let markersArray = [];
 
-
-const radiusMult = 100;
-
 let radius = 1;
 
 function initMap() {
@@ -34,13 +31,31 @@ function initMap() {
     console.log(origin);
     let request = {
       location: origin,
-      radius: '10000',
+      radius: radius * 1000,
       type: ['park']
     };
 
     placesService.nearbySearch(request, (results, status) =>{
       if (status == google.maps.places.PlacesServiceStatus.OK) {
+        //const locationAddresses = results.destinationAddresses;
+        //const locationNames = results.name;
+        let outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = "";
+        /*let name = "";
+        let address = "";
+        let rating = "";*/
         for (let i = 0; i < results.length; i++) {
+          /*let request = {
+            place: {
+              placeId: results[i].place_id,
+              location: results[i].geometry.location
+            }
+          }
+          placesService.getDetails(request, (place, status) =>{
+            name = place.name;
+            address = place.formatted_address;
+            rating = place.rating;
+          });*/
           new google.maps.Marker({
             map: map,
             place: {
@@ -51,7 +66,14 @@ function initMap() {
               url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
             }
           });
+          outputDiv.innerHTML +=
+              "Name: " + 
+              results[i].name + "<br>" +
+              "Address: " + 
+              results[i].formatted_address + "<br>" + 
+              "Rating: " + "<br>"
         }
+
       }
     });
 
@@ -88,11 +110,12 @@ function deleteMarkers(markersArray) {
 
 
 let slider = document.getElementById("radiusSlider");
+slider.defaultValue = 1;
 let radiusOutput = document.getElementById("radiusValue");
 radiusOutput.innerHTML = slider.value;
 
 slider.oninput = () => {
-  radius = (slider.value * radiusMult) / 1000;
+  radius = slider.value;
   radiusOutput.innerHTML = radius;
 }
 console.log(radius);
