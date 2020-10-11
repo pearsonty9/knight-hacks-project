@@ -80,7 +80,7 @@ h1 {
     height:700px;
     width:96%;
     overflow: auto;
-    background-color:#33363b;
+    background-color:#676c77;
     color:white;
     scrollbar-base-color:black;
     font-family:sans-serif;
@@ -89,13 +89,13 @@ h1 {
 
 #header{
     background: #252523;
-    height: 3%;
+    height: 3.7%;
     color: whitesmoke;
-    font-size: 16pt;
+    font-size: 20pt;
     margin:0;
     padding:5px 5%;
-
 }
+
 
 .radio{
     display: inline;
@@ -116,5 +116,12 @@ li{
     margin: 0;
     font-style: normal;
     font-weight: normal;
+}
+
+img{
+    list-style-image: url('imgs/kh.png');
+    border:0%;
+    align-items: flex-end;
+    size:15px 15px ;
 }
   
