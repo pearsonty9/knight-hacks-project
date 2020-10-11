@@ -6,6 +6,8 @@ let markersArray = [];
 let searchType = [];
 let color;
 
+let length = 0;
+
 let radius = 1;
 
 function initMap() {
@@ -80,7 +82,10 @@ function initMap() {
             } else {
               outputDiv.innerHTML += "Rating: not available" + "<br>" + "<br>";
             }
-            locationsData.push(results[i].rating);
+            if(results[i].rating != null){
+              locationsData.push(results[i].rating);
+              length += 1;
+            }
 
           }
         }
@@ -124,9 +129,10 @@ function deleteMarkers(markersArray) {
 }
 
 function algorithm(resultsArray, radius) {
+  console.log(resultsArray);
   /*var qualityParks = 0;
   var rating = 0;
-  if (resultsArray.length == 20 && radius > 3) {
+  if (resultsArray.length > 20 && radius > 3) {
     rating = 7.2;
   } else if (resultsArray.length == 0 || resultsArray.length == null) {
     rating = 0;
@@ -136,11 +142,11 @@ function algorithm(resultsArray, radius) {
   }
   console.log("num :" + rating);
   for (let i = 0; i < resultsArray.length; ++i) {
-    if (resultsArray[i].rating >= 4.5 && resultsArray[i].rating != null) {
+    if (resultsArray[i] >= 4.5 && resultsArray[i] != null) {
       qualityParks = qualityParks + 1;
       //console.log(qualityParks);
     }
-    if (resultsArray[i].rating < 3.5 && resultsArray[i].rating != null) {
+    if (resultsArray[i] < 3.5 && resultsArray[i] != null) {
       qualityParks = qualityParks - 1;
     }
   }
@@ -150,9 +156,15 @@ function algorithm(resultsArray, radius) {
   }
   if (rating > 10) {
     rating = 10;
-  }
+  }*/
   //console.log(qualityParks / resultsArray.length);
-  return rating;*/
+  let rating = 0;
+  console.log(length);
+  for(let i = 0; i < length;i++){
+    rating+=resultsArray[i];
+    console.log(rating);
+  }
+  return rating;
   //console.log(resultsArray);
 }
 
