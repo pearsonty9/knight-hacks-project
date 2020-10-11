@@ -22,11 +22,11 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: rgb(12, 15, 15)
+    background-color: #eaeaea;
 }
 
 #map {
-    height: 100%;
+    height: 95.9%;
     width: 50%;
 }
 
@@ -77,13 +77,24 @@ h1 {
 }
 #scrollBox{
     max-height: 1800px;
-    height:725px;
-    width:98%;
+    height:700px;
+    width:96%;
     overflow: auto;
-    background-color:rgb(16, 29, 47);
+    background-color:#33363b;
     color:white;
     scrollbar-base-color:black;
     font-family:sans-serif;
+    padding: 0% 2%;
+}
+
+#header{
+    background: #252523;
+    height: 3%;
+    color: whitesmoke;
+    font-size: 16pt;
+    margin:0;
+    padding:5px 5%;
+
 }
 
 .radio{
