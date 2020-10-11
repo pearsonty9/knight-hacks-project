@@ -24,9 +24,6 @@ function initMap() {
     lat: 0,
     lng: 0
   };
-
-  let locationsData = [];
-
   let ratingDiv = document.getElementById("rating-output");
   let outputDiv = document.getElementById("output");
 
@@ -37,6 +34,8 @@ function initMap() {
       lng: mapsMouseEvent.latLng.lng()
     };
     console.log(origin);
+
+    let locationsData = [];
 
     outputDiv.innerHTML = "";
     deleteMarkers(markersArray);
@@ -53,10 +52,8 @@ function initMap() {
         radius: radius * 1000,
         type: searchType[i]
       };
-      console.log("SearhType: " + searchType[i]);
       placesService.nearbySearch(request, (results, status) => {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-          locationsData = results;
           for (let i = 0; i < results.length; i++) {
             markersArray.push(new google.maps.Marker({
               map: map,
@@ -83,6 +80,8 @@ function initMap() {
             } else {
               outputDiv.innerHTML += "Rating: not available" + "<br>" + "<br>";
             }
+            locationsData.push(results[i].rating);
+
           }
         }
 
@@ -94,10 +93,9 @@ function initMap() {
         counter++;
       }
     }
+    console.log(locationsData);
     let finalRating = algorithm(locationsData, radius).toFixed(1);
     ratingDiv.innerHTML = finalRating;
-    console.log("final rating: " + finalRating);
-
   });
 }
 
@@ -126,7 +124,7 @@ function deleteMarkers(markersArray) {
 }
 
 function algorithm(resultsArray, radius) {
-  var qualityParks = 0;
+  /*var qualityParks = 0;
   var rating = 0;
   if (resultsArray.length == 20 && radius > 3) {
     rating = 7.2;
@@ -154,7 +152,8 @@ function algorithm(resultsArray, radius) {
     rating = 10;
   }
   //console.log(qualityParks / resultsArray.length);
-  return rating;
+  return rating;*/
+  //console.log(resultsArray);
 }
 
 function radioChange() {
@@ -190,4 +189,3 @@ slider.oninput = () => {
   radius = slider.value;
   radiusOutput.innerHTML = radius;
 }
-console.log(radius);

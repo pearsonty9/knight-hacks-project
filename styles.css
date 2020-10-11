@@ -112,16 +112,6 @@ h1 {
     padding: 0;
     margin: 0;
     margin-right: 1%;
-    cursor: pointer;
-}
-
-.radio .checkmark:after {
-    top: 9px;
-   left: 9px;
-   width: 8px;
-   height: 8px;
-   border-radius: 50%;
-   background: white;
 }
 
 ul{
@@ -136,4 +126,5 @@ li{
     font-size: 24;
     font-weight: bold;
 }
+
   
