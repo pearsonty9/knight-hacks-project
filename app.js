@@ -6,8 +6,6 @@ let markersArray = [];
 let searchType = [];
 let color;
 
-let length = 0;
-
 let radius = 1;
 
 function initMap() {
@@ -98,9 +96,10 @@ function initMap() {
         counter++;
       }
     }
-    console.log(locationsData);
+    /*
     let finalRating = algorithm(locationsData, radius).toFixed(1);
     ratingDiv.innerHTML = finalRating;
+    */
   });
 }
 
@@ -156,16 +155,10 @@ function algorithm(resultsArray, radius) {
   }
   if (rating > 10) {
     rating = 10;
-  }*/
-  //console.log(qualityParks / resultsArray.length);
-  let rating = 0;
-  console.log(length);
-  for(let i = 0; i < length;i++){
-    rating+=resultsArray[i];
-    console.log(rating);
   }
+  //console.log(qualityParks / resultsArray.length);
   return rating;
-  //console.log(resultsArray);
+  //console.log(resultsArray);*/
 }
 
 function radioChange() {
